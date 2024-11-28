@@ -1,7 +1,7 @@
 using System;
 using System.Reflection.Metadata.Ecma335;
 
-namespace AwardsService.DTOs;
+namespace Awards.Service.Response;
  
 public class WinnerYearDTO
 {     

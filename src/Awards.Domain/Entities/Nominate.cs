@@ -1,12 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using Awards.Domain.Abstract;
 
-namespace AwardsService.Entities;
+namespace Awards.Domain.Entities;
 
 [Table("Items")]
-public class Nominate
+public class Nominate: Entity
 {
-    public Guid Id { get; set; }
+ 
     public int Year { get; set; }
     public string Title { get; set; }
     public string Studios { get; set; }

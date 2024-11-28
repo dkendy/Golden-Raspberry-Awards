@@ -1,8 +1,9 @@
 using System;
-using AwardsService.Entities;
+using Awards.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AwardsService.Data;
+
+namespace Awards.Infraestructure.Data;
 
 public class AwardsDbContext : DbContext
 {
