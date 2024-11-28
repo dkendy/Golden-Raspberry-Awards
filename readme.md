@@ -2,8 +2,8 @@
 		<img src="./Assets/images/Golden_Raspberry_Award.jpg">
 
 </p>
-<p align="center"><h1 align="center">Golden Raspberry Awards</h1></p>
-<h3 align="center">AKA Razzie Awards</h3>
+<p align="center"><h1 align="center">Golden Raspberry Awards API</h1></p>
+<h3 align="center">(AKA Razzie Awards)</h3>
  
 <p align="center"> 
 	<img src="https://img.shields.io/github/last-commit/dkendy/Golden-Raspberry-Awards?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
@@ -19,17 +19,15 @@
 
 ##  Table of Contents
 
-- [ Overview](#-overview)
-- [ Features](#-features)
-- [ Project Structure](#-project-structure) 
-- [ Getting Started](#-getting-started)
-  - [ Prerequisites](#-prerequisites)
-  - [ Installation](#-installation)
-  - [ Usage](#-usage)
-  - [ Testing](#-testing) 
-- [ Contributing](#-contributing)
-- [ License](#-license)
-- [ Acknowledgments](#-acknowledgments)
+- [ Overview](#overview)
+- [ Features](#features)
+- [ Project Structure](#project-structure) 
+- [ Getting Started](#getting-started)
+  - [ Prerequisites](#prerequisites)
+  - [ Installation](#installation)
+  - [ Usage](#usage)
+  - [ Testing](#testing) 
+- [ Contributing](#contributing)
 
 ---
 
@@ -66,7 +64,7 @@ The API also offers endpoint 'data' for data manipulation.
 
 Before getting started with Golden-Raspberry-Awards, ensure your runtime environment meets the following requirements:
 
-- **.NET Runtime:** Ensure the required version of the .NET Runtime is installed (e.g., .NET 9.0 or later).
+- **.NET Runtime:** Ensure the required version of the .NET Runtime is installed (e.g., <a href="https://dotnet.microsoft.com/pt-br/download/dotnet/9.0">.NET 9.0</a> or later).
 - **Operating System:** Windows, macOS, or Linux (specify supported versions if applicable).
 - **Dependencies:** Run ``` dotnet restore ``` to restore the project dependencies.
  
@@ -93,13 +91,16 @@ Run this project using one of the following methods:
 ```
 
 ###  Usage
-Run Golden-Raspberry-Awards using the following command:
-**Using `nuget`** &nbsp; [<img align="center" src="https://img.shields.io/badge/C%23-239120.svg?style={badge_style}&logo=c-sharp&logoColor=white" />](https://docs.microsoft.com/en-us/dotnet/csharp/)
+Run the api using the following command: 
 
 ```sh
 ❯ dotnet run
 ```
+Open Swagger site: https://localhost:5001/swagger/index.html
 
+<p align="center"> 
+		<img src="./Assets/images/Swagger.jpeg"> 
+</p>
 
 ###  Testing
 
@@ -109,7 +110,7 @@ Run Golden-Raspberry-Awards using the following command:
 ```
 
 2. Run the test suite using the following command:
-**Using `nuget`** &nbsp; [<img align="center" src="https://img.shields.io/badge/C%23-239120.svg?style={badge_style}&logo=c-sharp&logoColor=white" />](https://docs.microsoft.com/en-us/dotnet/csharp/)
+
 
 ```sh
 ❯ dotnet test
