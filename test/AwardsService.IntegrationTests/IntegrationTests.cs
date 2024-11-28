@@ -38,7 +38,7 @@ public class IntegrationServiceTest : BaseIntegrationTest
         //Arrange
 
         // Act
-        var response = await _client.GetAsync("/api/v1/persist");
+        var response = await _client.GetAsync("/api/v1/data");
         response.EnsureSuccessStatusCode();
 
         var resource = await response.Content.ReadFromJsonAsync<int>();
@@ -71,8 +71,8 @@ public class IntegrationServiceTest : BaseIntegrationTest
         };
 
         //Act
-        var responseInsertYear1 = await _client.PostAsJsonAsync("/api/v1/persist", year1);
-        var responseInsertYear2 = await _client.PostAsJsonAsync("/api/v1/persist", year2);
+        var responseInsertYear1 = await _client.PostAsJsonAsync("/api/v1/data", year1);
+        var responseInsertYear2 = await _client.PostAsJsonAsync("/api/v1/data", year2);
 
 
         var responseResult = await _client.GetAsync("/api/v1/awards");
@@ -82,11 +82,11 @@ public class IntegrationServiceTest : BaseIntegrationTest
         var resource = await responseResult.Content.ReadFromJsonAsync<Intervals>();
 
         var id1 = await responseInsertYear1.Content.ReadFromJsonAsync<Guid>();
-        var responseResultDelete1 = await _client.DeleteAsync($"/api/v1/persist/{id1}");
+        var responseResultDelete1 = await _client.DeleteAsync($"/api/v1/data/{id1}");
         responseResultDelete1.EnsureSuccessStatusCode();
 
         var id2 = await responseInsertYear2.Content.ReadFromJsonAsync<Guid>();
-        var responseResultDelete2 = await _client.DeleteAsync($"/api/v1/persist/{id2}");
+        var responseResultDelete2 = await _client.DeleteAsync($"/api/v1/data/{id2}");
         responseResultDelete2.EnsureSuccessStatusCode();
 
         //Assert

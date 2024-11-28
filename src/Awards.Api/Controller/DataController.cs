@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace Awards.Api.Controller
 {
     [ApiController]
-    [Route("api/v{version:apiVersion}/persist")] 
-    public class PersistController: ControllerBase
+    [Route("api/v{version:apiVersion}/data")] 
+    public class DataController: ControllerBase
     {
         public IAwardsService _awardsService { get; }
-        public PersistController(IAwardsService awardsService){
+        public DataController(IAwardsService awardsService){
             this._awardsService = awardsService;
 
         }
