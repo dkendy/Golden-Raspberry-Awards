@@ -21,18 +21,29 @@ public class AwardsService: IAwardsService
         var winnersByYear = new List<WinnerYearDTO>();
         var dictWinnerYear = new Dictionary<string, List<int>>();
         var dictIntervalWinner = new Dictionary<int, List<WinnerYearDTO>>();
-
-        foreach (var win in winners)
+ 
+        foreach (var win in winners.Where(x=>x.Winner))
         {
+             
+            string[] producers = win.Producers
+                .Replace(" and ", ",")  
+                .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)  
+                .Select(s => s.Trim())  
+                .ToArray();
 
-            if (dictWinnerYear.ContainsKey(win.Producers))
-                dictWinnerYear[win.Producers].Add(win.Year);
-            else
-                dictWinnerYear.Add(win.Producers, new List<int>() { win.Year });
+            foreach( string producer in producers)
+                if (dictWinnerYear.ContainsKey(producer))
+                {
+                    var yearsList = dictWinnerYear[producer];
+                    yearsList.Add(win.Year);
+                    dictWinnerYear[producer] = yearsList;
+                }
+                else
+                    dictWinnerYear.Add(producer, new List<int>() { win.Year });
 
         }
-
-        foreach (var producer in dictWinnerYear.Where(c => c.Value.Count > 1))
+ 
+        foreach (var producer in dictWinnerYear)
         {
             var years = producer.Value.OrderBy(x=>x).ToList();
 

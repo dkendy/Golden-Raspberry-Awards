@@ -55,7 +55,7 @@ public class IntegrationServiceTest : BaseIntegrationTest
         var year1 = new Nominate()
         {
             Title = "Movie 1",
-            Producers = "Producer from movie 1",
+            Producers = "Producer1, Producer 2 and Producer 3",
             Studios = "Studios 1",
             Winner = true,
             Year = 1900
@@ -64,7 +64,7 @@ public class IntegrationServiceTest : BaseIntegrationTest
         var year2 = new Nominate()
         {
             Title = "Movie 1.2",
-            Producers = "Producer from movie 1",
+            Producers = "Producer 3 and Producer 4",
             Studios = "Studios 3",
             Winner = true,
             Year = 2000
@@ -90,7 +90,10 @@ public class IntegrationServiceTest : BaseIntegrationTest
         responseResultDelete2.EnsureSuccessStatusCode();
 
         //Assert
-        Assert.Equal(100, resource?.Max.Where(x => x.Producer == "Producer from movie 1").First().interval);
+        Assert.Equal(100, resource?.Max.Where(x => x.Producer == "Producer 3").First().interval); 
+        Assert.Equal(0, resource?.Max.Where(x => x.Producer == "Producer 2").Count());
+        
+
         responseResult.StatusCode.Should().Be(HttpStatusCode.OK);
         responseInsertYear1.StatusCode.Should().Be(HttpStatusCode.Created);
         responseInsertYear2.StatusCode.Should().Be(HttpStatusCode.Created);
